@@ -1,24 +1,14 @@
 var o = document.getElementById("num");
-var s = document.getElementById("wa");
 var t = document.getElementById("w");
+var s = document.getElementById("btn").disabled;
 o.disabled = false;
 function a() {
-  var p = [];
+  s = true;
+  o.disabled = true;
   var z = [];
   const w = parseInt(o.value, 10);
   if (w >= 0) {
-    s.innerHTML = "";
-    o.disabled = true;
-    for (var i = 1; i <= w; i++) {
-      p.push(i);
-    }
-    for (var e = 1; e <= w - 1; e++) {
-      for (var f = 2; p[e] * f <= w; f++) {
-        if (p.indexOf(p[e] * f) != -1) {
-          p.splice(p.indexOf(p[e] * f), 1);
-        }
-      }
-    }
+    t.innerHTML = "";
     for (var y = 1; y <= w; y++) {
       for (var x = 1; x <= w; x++) {
         if (y > x) {
@@ -37,10 +27,12 @@ function a() {
         }
       }
     }
-    s.innerHTML = p.join("<br>");
     t.innerHTML = z.join("<br>");
+    s = false;
     o.disabled = false;
   } else {
-    s.innerHTML = "your brain is bad";
+    t.innerHTML = "your brain is bad";
+    s = false;
+    o.disabled = false;
   }
 }
